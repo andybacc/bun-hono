@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { HTTPException } from "hono";
+import { HTTPException } from 'hono/http-exception';
 
 const app = new Hono();
 
