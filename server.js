@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 
-const app = new Hono().basePath('/api');
+const app = new Hono();
 
 app.get("/", (c) => {
     c.send("Hello World");
