@@ -4,7 +4,7 @@ import { HTTPException } from 'hono/http-exception';
 const app = new Hono();
 
 app.get("/", (c) => {
-    c.send("Hello World");
+    c.text("Hello World");
 });
 
 app.onError((err, c) => {
