@@ -1,9 +1,21 @@
 import { Hono } from "hono";
-const app = new Hono();
 
-console.log(`Listening on localhost:3000`);
+const app = new Hono().basePath('/api');
 
-app.get("/", c => c.text("Hono!"));
+app.get("/", (c) => {
+    c.send("Hello World");
+});
 
-export default app;
-  
+app.onError((err, c) => {
+    console.log(err)
+    if (err instanceof HTTPException) {
+        return c.json({ error: err.message }, err.status)
+    } else {
+        return c.json({ error: 'Internat server error' }, 500)
+    }
+})
+
+export default {
+    port: 3000,
+    fetch: app.fetch,
+}
