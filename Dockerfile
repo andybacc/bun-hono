@@ -6,4 +6,4 @@ COPY server.js ./server.js
 
 RUN bun install
 
-ENTRYPOINT [ "bun", "server.js" ]
+ENTRYPOINT [ "bun", "run", "--watch", "/home/bun/app/server.js" ]
