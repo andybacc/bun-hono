@@ -1,8 +1,8 @@
 FROM oven/bun:alpine
 
 WORKDIR /app
-COPY ./package.json ./package.json
-COPY ./server.js ./server.js
+COPY ./package.json /app/package.json
+COPY ./server.js /app/server.js
 
 CMD ["bun", "install"]
 
